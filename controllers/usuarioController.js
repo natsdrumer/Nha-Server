@@ -4,7 +4,7 @@ const { Usuario } = require('../models');
 const usuarioController = {
   createUsuario: async (req, res) => {
     try {
-      const { nome, email, senha, tipoUsuario } = req.body;
+      const { email, senha, tipo, nome,  idade, telefone, morada, inps  } = req.body;
 
       // Verifique se o e-mail já está em uso
       const usuarioExistente = await Usuario.findOne({ where: { email } });
@@ -13,7 +13,7 @@ const usuarioController = {
       }
 
       // Crie o usuário
-      const usuario = await Usuario.create({ nome, email, senha, tipoUsuario });
+      const usuario = await Usuario.create({ email, senha, tipo, nome,  idade, telefone, morada, inps });
 
       res.status(201).json(usuario);
     } catch (error) {

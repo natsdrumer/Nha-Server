@@ -19,17 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Medico.init({
-    nome: DataTypes.STRING,
-    telefone: DataTypes.INTEGER,
-    nif: DataTypes.INTEGER,
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
     numeroMedico: {
       type: DataTypes.INTEGER,
       primaryKey: true, 

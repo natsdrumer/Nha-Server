@@ -9,23 +9,6 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      nome: {
-        type: Sequelize.STRING
-      },
-      telefone: {
-        type: Sequelize.INTEGER
-      },
-      nif: {
-        type: Sequelize.INTEGER
-      },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-          isEmail: true,
-        },
-      },
       especialidadeId:{
         type: Sequelize.INTEGER
       },

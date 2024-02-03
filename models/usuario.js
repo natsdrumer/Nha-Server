@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require('bcrypt');
 const {
   Model
 } = require('sequelize');
@@ -9,17 +10,42 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+
+    async hashSenha() {
+      const saltRounds = 10;
+      this.senha = await bcrypt.hash(this.senha, saltRounds);
+    }
+
     static associate(models) {
       // define association here
-      Usuario.belongsTo(models.Paciente);
-      Usuario.belongsTo(models.Medico);
-      Usuario.belongsTo(models.Secretaria);
+      Usuario.belongsTo(models.Paciente, { foreignKey: 'pacienteId' });
+      Usuario.belongsTo(models.Medico, { foreignKey: 'numeroMedico' });
+      Usuario.belongsTo(models.Secretaria, { foreignKey: 'secretariaId' });
     }
   }
   Usuario.init({
-    email: DataTypes.STRING,
-    senha: DataTypes.STRING,
-    tipo: DataTypes.STRING
+    nome: DataTypes.STRING,
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      isEmail: true,
+    },
+  },
+  senha: DataTypes.STRING,
+  tipo: {
+    type: DataTypes.ENUM('Secretaria', 'Medico', 'Paciente'),
+    allowNull: false,
+  },
+  idade: DataTypes.INTEGER,
+  telefone: DataTypes.INTEGER,
+  nif: DataTypes.INTEGER,
+  morada: DataTypes.STRING,
+  inps: DataTypes.INTEGER,
+  pacienteId: DataTypes.INTEGER,
+  numeroMedico: DataTypes.INTEGER,
+  secretariaId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Usuario',

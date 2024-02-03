@@ -18,6 +18,33 @@ module.exports = {
       tipo: {
         type: Sequelize.STRING
       },
+      nome: {
+        type: Sequelize.STRING
+      },
+      idade: {
+        type: Sequelize.INTEGER
+      },
+      telefone: {
+        type: Sequelize.INTEGER
+      },
+      morada: {
+        type: Sequelize.STRING
+      },
+      nif: {
+        type: Sequelize.INTEGER
+      },
+      inps: {
+        type: Sequelize.INTEGER
+      },
+      pacienteId: {
+        type: Sequelize.INTEGER
+      },
+      numeroMedico: {
+        type: Sequelize.INTEGER
+      },
+      secretariaId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

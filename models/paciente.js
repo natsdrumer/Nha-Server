@@ -16,21 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Paciente.init({
-    nome: DataTypes.STRING,
-    idade: DataTypes.INTEGER,
-    telefone: DataTypes.INTEGER,
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
-    morada: DataTypes.STRING,
-    nif: DataTypes.INTEGER,
-    inps: DataTypes.INTEGER,
-    usuarioId: DataTypes.INTEGER
+    UsuarioId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Paciente',

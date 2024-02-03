@@ -16,16 +16,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Secretaria.init({
-    nome: DataTypes.STRING,
-    telefone: DataTypes.STRING,
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
     ClinicaId: DataTypes.INTEGER
   }, {
     sequelize,

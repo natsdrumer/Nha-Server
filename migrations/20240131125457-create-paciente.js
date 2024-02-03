@@ -9,27 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nome: {
-        type: Sequelize.STRING
-      },
-      idade: {
-        type: Sequelize.INTEGER
-      },
-      telefone: {
-        type: Sequelize.INTEGER
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      morada: {
-        type: Sequelize.STRING
-      },
-      nif: {
-        type: Sequelize.INTEGER
-      },
-      inps: {
-        type: Sequelize.INTEGER
-      },
       usuarioId: {
         type: Sequelize.INTEGER
       },
